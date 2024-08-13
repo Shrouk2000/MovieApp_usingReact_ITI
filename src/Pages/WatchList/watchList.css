@@ -1,0 +1,19 @@
+.watched-movies {
+    padding: 20px;
+  }
+  
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .movie-card {
+    margin: 10px;
+    width: 200px;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    height: auto;
+  }
+  

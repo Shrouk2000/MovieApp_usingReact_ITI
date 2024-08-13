@@ -1,0 +1,18 @@
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.movie-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 200px;
+}
+
+.movie-poster {
+  width: 100%;
+  border-radius: 4px;
+}
