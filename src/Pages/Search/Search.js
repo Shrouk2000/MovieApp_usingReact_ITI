@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
-// import './SearchPage.css'; 
+import CircularProgressBar from '../../components/circularProgressBar/circularProgressBar';
+import PaginationControls from '../../components/Pagenation/Pagenation';
 
 const SearchPage = () => {
   const [movies, setMovies] = useState([]);
@@ -35,6 +36,7 @@ const SearchPage = () => {
 
     <div className="search-page">
         <Navbar/>
+     
       <h1>Search Results for "{query}"</h1>
       <div className="movie-list">
         {movies.length > 0 ? (
@@ -45,15 +47,22 @@ const SearchPage = () => {
                 alt={movie.title} 
                 className="movie-poster"
               />
+               <div className="movie-rating">
+                  <CircularProgressBar percentage={Math.round(movie.vote_average * 10)} />
+                </div>
               <h2>{movie.title}</h2>
-              <p>{movie.overview}</p>
+              <p>{movie.release_date}</p>
             </div>
           ))
         ) : (
           <div>No movies found</div>
         )}
       </div>
+      <PaginationControls
+    
+      />
     </div>
+
   );
 };
 
