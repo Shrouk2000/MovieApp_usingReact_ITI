@@ -20,4 +20,21 @@ h1{
     width: 100%;
     height: auto;
   }
-  
+  .noMovies{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd; 
+    background-color: #fff; 
+    border-radius: 8px; 
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin-top: 200px;
+  }
+  .noMovies a{
+   background-color: yellowgreen;
+   padding: 10px;
+   text-decoration: none;
+border-radius: 10px;
+  }

@@ -9,6 +9,9 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import PaginationControls from '../../components/Pagenation/Pagenation'; 
 import CircularProgressBar from '../../components/circularProgressBar/circularProgressBar'; 
 import './home.css';
+import formatDate from '../../components/formatDate/formatDate';
+
+<formatDate/>
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -68,6 +71,10 @@ const Home = () => {
     return watchlist.some(watchlistedMovie => watchlistedMovie.id === movie.id);
   };
 
+  const handleMovieClick = (movieId) => {
+    navigate(`/movie/${movieId}`);
+  };
+
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -83,20 +90,30 @@ const Home = () => {
       <div className="movie-list">
         {movies.length > 0 ? (
           movies.map(movie => (
-            <div key={movie.id} className="movie-card">
+            <div 
+              key={movie.id} 
+              className="movie-card" 
+              onClick={() => handleMovieClick(movie.id)}
+            >
               <div className="movie-poster-container">
                 <img 
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                   alt={movie.title} 
                   className="movie-poster"
                 />
-                <div className="movie-rating">
+                <div className="movie_rating">
                   <CircularProgressBar percentage={Math.round(movie.vote_average * 10)} />
                 </div>
               </div>
               <h2>{movie.title}</h2>
-              <p>{movie.release_date}</p>
-              <div className="movie-heart" onClick={() => toggleWatchlist(movie)}>
+              <p>{formatDate(movie.release_date)}</p>
+              <div 
+                className="movie-heart" 
+                onClick={(e) => { 
+                  e.stopPropagation(); 
+                  toggleWatchlist(movie); 
+                }}
+              >
                 {isMovieInWatchlist(movie) ? (
                   <FaHeart color="red" />
                 ) : (

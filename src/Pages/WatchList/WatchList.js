@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import './watchList.css'
 import CircularProgressBar from '../../components/circularProgressBar/circularProgressBar'; 
-import NoPages from '../NoPages/NoPages';
+// import NoPages from '../NoPages/NoPages';
 import  Navbar  from '../../components/Navbar/Navbar';
 const Watchlist = () => {
   const watchlist = useSelector((state) => state.watchlist);
@@ -20,7 +20,7 @@ const Watchlist = () => {
                   alt={movie.title} 
                   className="movie-poster"
                 />
-                  <div className="movie-rating">
+                  <div className="movie_rating">
                   <CircularProgressBar percentage={Math.round(movie.vote_average * 10)} />
                 </div>
               </div>
@@ -30,11 +30,12 @@ const Watchlist = () => {
           ))}
         </div>
       ) : (
-         <div>
+         <div className='noMovies'>
+          
             <h1>No movies added to the watchlist</h1>
-            <button>Back to home</button>
+            <a href='/'>Back to home</a>
             </div>
-        // <NoPages/>
+      
       )}
     </div>
   );

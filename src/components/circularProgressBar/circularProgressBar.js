@@ -1,7 +1,7 @@
 import React from 'react';
 import './circularProgressBar.css';
 const CircularProgressBar = ({ percentage }) => {
-  const strokeColor = '#ffcb2c'; // Customize the color as needed
+  const strokeColor = 'green'; // Customize the color as needed
   const radius = 30; // Radius of the circular bar
   const strokeWidth = 8; // Width of the stroke
   const circumference = 2 * Math.PI * radius;

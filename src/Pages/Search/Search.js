@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
-import CircularProgressBar from '../../components/circularProgressBar/circularProgressBar';
+// import CircularProgressBar from '../../components/circularProgressBar/circularProgressBar';
 import PaginationControls from '../../components/Pagenation/Pagenation';
-
+import './search.css';
+import formatDate from '../../components/formatDate/formatDate';
+<formatDate/>
 const SearchPage = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,7 +39,7 @@ const SearchPage = () => {
     <div className="search-page">
         <Navbar/>
      
-      <h1>Search Results for "{query}"</h1>
+      <h1 className='header'>Search Results for "{query}"</h1>
       <div className="movie-list">
         {movies.length > 0 ? (
           movies.map(movie => (
@@ -47,11 +49,11 @@ const SearchPage = () => {
                 alt={movie.title} 
                 className="movie-poster"
               />
-               <div className="movie-rating">
-                  <CircularProgressBar percentage={Math.round(movie.vote_average * 10)} />
+               <div className="movie_rating ">
+                  {/* <CircularProgressBar percentage={Math.round(movie.vote_average * 10)} /> */}
                 </div>
               <h2>{movie.title}</h2>
-              <p>{movie.release_date}</p>
+              <p>{formatDate(movie.release_date)}</p>
             </div>
           ))
         ) : (

@@ -2,9 +2,12 @@
    .circular-progress-bar svg {
     width: 80px;
     height: 80px;
+  
   }
   
   .circular-progress-bar text {
     font-weight: bold;
+    fill: #fff
+
   }
   

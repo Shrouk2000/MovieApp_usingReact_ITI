@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import LanguageContext from './context/LanguageContext';
-
+import MovieDetails from './Pages/MoviesDetails/MovieDetails';
 const Home = lazy(() => import('./Pages/Home/Home'));
 const SearchPage = lazy(() => import('./Pages/Search/Search'));
 const Watchlist = lazy(() => import('./Pages/WatchList/WatchList'));
@@ -22,6 +22,8 @@ const App = () => {
                 <Route index element={<Home />} />
                 <Route path="/searchPage" element={<SearchPage />} />
                 <Route path="/watchlist" element={<Watchlist />} />
+               
+                <Route path="/movie/:id" element={<MovieDetails />} />
               </Route>
             </Routes>
           </Suspense>
