@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { FaHeart } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import './Navbar.css';
 import LanguageContext from "../../context/LanguageContext";
